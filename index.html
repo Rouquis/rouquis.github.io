@@ -13,7 +13,7 @@
 		function getLocation() {
 			var result = document.getElementById("result");
 			result.innerHTML = "Buscando localização...";
-			fetch('https://ipinfo.io/json?token=SUA_CHAVE_AQUI')
+			fetch('https://ipinfo.io/json?token=2270c7b7e97975')
 				.then(response => response.json())
 				.then(data => {
 					result.innerHTML = `Localização do usuário: ${data.city}, ${data.region}, ${data.country} (${data.loc})`;
