@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Minha página web</title>
+</head>
+<body>
+	<h1>Bypass Geolocalização</h1>
+	<p>Este exemplo utiliza o método fetch() para tentar obter a localização do usuário sem solicitar permissão.</p>
+	<p>Clique no botão abaixo para ver a localização do usuário:</p>
+	<button onclick="getLocation()">Obter localização</button>
+	<div id="result"></div>
+	<script>
+		function getLocation() {
+			var result = document.getElementById("result");
+			result.innerHTML = "Buscando localização...";
+			fetch('https://ipinfo.io/json?token=SUA_CHAVE_AQUI')
+				.then(response => response.json())
+				.then(data => {
+					result.innerHTML = `Localização do usuário: ${data.city}, ${data.region}, ${data.country} (${data.loc})`;
+				})
+				.catch(error => {
+					result.innerHTML = "Erro ao buscar a localização do usuário.";
+					console.error(error);
+				});
+		}
+	</script>
+</body>
+</html>
